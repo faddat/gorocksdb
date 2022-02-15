@@ -24,5 +24,5 @@ Vendoring is thus highly recommended if you require high stability.
 ```bash
 CGO_CFLAGS="-I/opt/homebrew/Cellar/rocksdb/6.27.3/include" \
 CGO_LDFLAGS="-L/opt/homebrew/Cellar/rocksdb/6.27.3/lib -lrocksdb -lstdc++ -lm -lz -lbz2 -lsnappy -llz4 -lzstd -L/opt/homebrew/Cellar/snappy/1.1.9/lib -L/opt/homebrew/Cellar/lz4/1.9.3/lib/ -L /opt/homebrew/Cellar/zstd/1.5.1/lib/"  \
-LDFLAGS='-w -s -X github.com/cosmos/cosmos-sdk/types.DBBackend=rocksdb' go install -tags rocksdb ./...
+go install -ldflags '-w -s -X github.com/cosmos/cosmos-sdk/types.DBBackend=rocksdb' -tags rocksdb ./...
 ```
