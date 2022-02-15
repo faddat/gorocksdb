@@ -26,3 +26,17 @@ CGO_CFLAGS="-I/opt/homebrew/Cellar/rocksdb/6.27.3/include" \
 CGO_LDFLAGS="-L/opt/homebrew/Cellar/rocksdb/6.27.3/lib -lrocksdb -lstdc++ -lm -lz -lbz2 -lsnappy -llz4 -lzstd -L/opt/homebrew/Cellar/snappy/1.1.9/lib -L/opt/homebrew/Cellar/lz4/1.9.3/lib/ -L /opt/homebrew/Cellar/zstd/1.5.1/lib/"  \
 go install -ldflags '-w -s -X github.com/cosmos/cosmos-sdk/types.DBBackend=rocksdb' -tags rocksdb ./...
 ```
+
+If it worked, when you start the chain you may get:
+
+```
+panic: failed to initialize database: IO error: No such file or directory: While mkdir if missing: /ssfour/juno/data/snapshots/metadata.db: No such file or directory
+```
+
+Then you can, for example:
+
+```bash
+mkdir -p /ssfour/juno/data/snapshots/metadata.db
+```
+
+and it will start right up.
