@@ -35,8 +35,11 @@ panic: failed to initialize database: IO error: No such file or directory: While
 
 Then you can, for example:
 
+
+Note: change .chainname to the name of the chain that you're working with and make sure to change the "username" to your username. 
+
 ```bash
-mkdir -p /ssfour/juno/data/snapshots/metadata.db
+mkdir -p /home/username/.chainname/data/snapshots/metadata.db
 ```
 
 and it will start right up.
